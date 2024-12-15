@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="www.project.dutchpay.mapper.DetailsMapper">
+    <select id="getDetails" >
+        SELECT * FROM details WHERE group_id = #{group_id}
+    </select>
+
+    <insert id="insertDetails" >
+        INSERT INTO details (device_id, group_id, title, money)
+        VALUES (#{device_id}, #{group_id}, #{title}, #{money})
+    </insert>
+
+    <delete id="deleteDetails" >
+        DELETE FROM details
+        WHERE device_id = #{device_id} AND group_id = #{group_id} AND title = #{title}
+    </delete>
+
+    <update id="updateDetails">
+        UPDATE details
+        SET title = #{title}, money = #{money}
+        WHERE list_id = #{list_id}
+    </update>
+</mapper>
